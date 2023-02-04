@@ -35,7 +35,16 @@ export const App = () => {
         setLoading(false);
       }
     };
+
     fetchPosts();
+
+    if (page > 1) {
+      console.log(page);
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   }, [search, page]);
 
   const searchImages = ({ search }) => {
