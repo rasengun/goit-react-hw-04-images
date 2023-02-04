@@ -1,6 +1,6 @@
 import '../styles.css';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Audio } from 'react-loader-spinner';
 
 import ImageSearchForm from './ImageSearchForm/ImageSearchForm';
@@ -8,7 +8,6 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
 import { searchImageAPI } from 'services/api';
-import { useState } from 'react';
 
 export const App = () => {
   const [search, setSearch] = useState('');
@@ -39,7 +38,6 @@ export const App = () => {
     fetchPosts();
 
     if (page > 1) {
-      console.log(page);
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
