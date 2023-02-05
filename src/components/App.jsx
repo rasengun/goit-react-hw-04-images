@@ -36,14 +36,16 @@ export const App = () => {
     };
 
     fetchPosts();
+  }, [search, page]);
 
-    if (page > 1) {
+  useEffect(() => {
+    if (!loading && page > 1) {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
       });
     }
-  }, [search, page]);
+  }, [loading, page]);
 
   const searchImages = ({ search }) => {
     setSearch(search);
