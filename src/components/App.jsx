@@ -1,6 +1,6 @@
 import '../styles.css';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Audio } from 'react-loader-spinner';
 
 import ImageSearchForm from './ImageSearchForm/ImageSearchForm';
@@ -47,25 +47,25 @@ export const App = () => {
     }
   }, [loading, page]);
 
-  const searchImages = ({ search }) => {
+  const searchImages = useCallback(({ search }) => {
     setSearch(search);
     setImages([]);
     setPage(1);
-  };
+  }, []);
 
-  const loadMore = () => {
+  const loadMore = useCallback(() => {
     setPage(prevPage => prevPage + 1);
-  };
+  }, []);
 
-  const showImage = data => {
+  const showImage = useCallback(data => {
     setLargeImageURL(data);
     setShowModal(true);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setLargeImageURL('');
     setShowModal(false);
-  };
+  }, []);
 
   return (
     <>

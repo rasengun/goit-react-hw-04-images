@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -40,7 +41,7 @@ const ImageSearchForm = ({ onSubmit }) => {
   );
 };
 
-export default ImageSearchForm;
+export default memo(ImageSearchForm);
 
 /*
 class ImageSearchForm extends Component {
